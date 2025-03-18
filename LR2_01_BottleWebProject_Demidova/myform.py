@@ -12,12 +12,13 @@ def my_form():
     if not username or not email_address or not question:
         return "All fields are required. Please fill out the form."
 
-    # Проверка email по паттерну
-    email_pattern = re.compile((r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$)"))
-    if not re.match(email_pattern, email_address):
+    # Проверка формата email
+    email_pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z-]+\.[a-zA-Z]{2,}$'
+    if not re.fullmatch(email_pattern, email_address):
         return "Invalid email format. Please enter a valid email."
 
     # Получение текущей даты
     current_date = datetime.now().strftime("%Y-%m-%d")
 
     return "Thanks, {}! The answer will be sent to {}. Access Date: {}".format(username, email_address, current_date)
+
