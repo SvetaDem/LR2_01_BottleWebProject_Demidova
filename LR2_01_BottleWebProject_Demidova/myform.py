@@ -4,9 +4,9 @@ from datetime import datetime
 
 @post('/home')
 def my_form():
-    username = request.forms.get('USERNAME', '').strip()
-    email_address = request.forms.get('ADRESS', '').strip()
-    question = request.forms.get('QUEST', '').strip()
+    username = request.forms.get('USERNAME').strip()
+    email_address = request.forms.get('ADRESS').strip()
+    question = request.forms.get('QUEST').strip()
 
     # Проверка заполненности полей
     if not username or not email_address or not question:
