@@ -13,7 +13,7 @@ def my_form():
         return "All fields are required. Please fill out the form."
 
     # Проверка формата email
-    email_pattern = r'^[a-zA-Z0-9_-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$'
+    email_pattern = r'^[a-zA-Z0-9_-]+@[a-zA-Z]+\.[a-zA-Z]$'
     if not re.fullmatch(email_pattern, email_address):
         return "Invalid email format. Please enter a valid email."
 
