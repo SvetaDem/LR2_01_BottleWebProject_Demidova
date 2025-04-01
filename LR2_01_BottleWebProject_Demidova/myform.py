@@ -23,8 +23,8 @@ def my_form():
     current_date = datetime.now().strftime("%Y-%m-%d")
 
     # Запись в словарь (email – ключ, question – значение)
-    questions_dict = {email_address:question}
-    #pdb.set_trace()
+    questions_dict = {email_address:[username,question]}
+    pdb.set_trace()
 
     return "Thanks, {}! The answer will be sent to {}. Access Date: {}".format(username, email_address, current_date)
 
