@@ -1,6 +1,7 @@
 from bottle import post, request
 import re
 from datetime import datetime
+import pdb
 
 @post('/home')
 def my_form():
@@ -21,5 +22,10 @@ def my_form():
     # Получение текущей даты
     current_date = datetime.now().strftime("%Y-%m-%d")
 
+    # Запись в словарь (email – ключ, question – значение)
+    questions_dict = {email_address:question}
+    #pdb.set_trace()
+
     return "Thanks, {}! The answer will be sent to {}. Access Date: {}".format(username, email_address, current_date)
 
+    
