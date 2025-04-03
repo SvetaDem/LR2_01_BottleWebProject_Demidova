@@ -16,6 +16,11 @@ def load_json():
             file.close()
         except:
             data = {}
+    else:
+        file = open(path, 'w')  # Создаём пустой JSON
+        json.dump({}, file, indent=4)
+        file.close()
+        data = {}
     return data
 
 # Функция для сохранения данных в файл
@@ -50,7 +55,7 @@ def my_form():
     # Загрузка существующих данных
     data = load_json()
 
-    # Проверяем, есть ли email в JSON
+        # Проверяем, есть ли email в JSON
     if email_address not in data:
         data[email_address] = {
             "username": username,
