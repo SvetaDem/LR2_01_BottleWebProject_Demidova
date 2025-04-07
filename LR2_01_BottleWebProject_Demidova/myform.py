@@ -4,6 +4,7 @@ from datetime import datetime
 import pdb
 import json
 import os
+import string
 
 path = 'C:\\Users\\Светлана\\Desktop\\learning\\МДК\\МДК 02.02 Инструментальные средства разработки ПО, У.С. Опалева\\Programs\\LR2_01_BottleWebProject_Demidova\\data.json'
 
@@ -45,9 +46,10 @@ def my_form():
     if not re.fullmatch(email_pattern, email_address):
         return "Invalid email format. Please enter a valid email."
 
-    # Проверка вопроса (длина > 3 символов и не только цифры)
-    if len(question) <= 3 or question.isdigit():
-        return "Question must be more than 3 characters and not just numbers."
+    # Проверка вопроса (должен содержать хотя бы одну букву и быть длиной > 3 без учёта знаков)
+    cleaned_question = ''.join(c for c in question if c.isalnum())  # убираем знаки препинания
+    if len(cleaned_question) <= 3 or not any(c.isalpha() for c in cleaned_question):
+        return "Question must contain more than 3 letters or digits and at least one letter."
 
     # Получение текущей даты
     current_date = datetime.now().strftime("%Y-%m-%d")
