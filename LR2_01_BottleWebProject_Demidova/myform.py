@@ -55,12 +55,16 @@ def my_form():
     # Загрузка существующих данных
     data = load_json()
 
-        # Проверяем, есть ли email в JSON
+    # Проверяем, есть ли email в JSON
     if email_address not in data:
         data[email_address] = {
             "username": username,
             "questions": []
         }
+    else:
+        # Если email уже есть — проверим соответствие имени
+        if data[email_address]["username"] != username:
+            return "Username does not match the registered name for this email. Question will not be saved."
 
     # Проверяем, есть ли такой вопрос уже в списке
     if question not in data[email_address]["questions"]:
