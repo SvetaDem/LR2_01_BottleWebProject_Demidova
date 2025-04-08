@@ -40,8 +40,9 @@ def my_form():
     if not username or not email_address or not question:
         return "All fields are required. Please fill out the form."
 
-    if not all(c.isalpha() or c in "_ " for c in username):
-        return "The username must consist only of letters, underscores and spaces."
+    # Проверка имени пользователя
+    if not all(c.isalpha() or c in "_ " for c in username) or not any(c.isalpha() for c in username):
+        return "The username must consist only of letters, underscores and spaces, and must include at least one letter."
 
     # Проверка формата email
     email_pattern = r"^(?=[a-zA-Z0-9])(?!.*\.\.)[a-zA-Z0-9_.-]{2,64}@(?=.{1,255}$)[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$"
@@ -87,6 +88,6 @@ def my_form():
 # --------------Задание №6-------------
 # Запись в словарь (email – ключ, question – значение)
 # questions_dict = {email_address:[username,question]}
-pdb.set_trace()
+# pdb.set_trace()
 
     
