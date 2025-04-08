@@ -87,6 +87,6 @@ def my_form():
 # --------------Задание №6-------------
 # Запись в словарь (email – ключ, question – значение)
 # questions_dict = {email_address:[username,question]}
-# pdb.set_trace()
+pdb.set_trace()
 
     
