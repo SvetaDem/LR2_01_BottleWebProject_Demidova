@@ -40,6 +40,9 @@ def my_form():
     if not username or not email_address or not question:
         return "All fields are required. Please fill out the form."
 
+    if not all(c.isalpha() or c in "_ " for c in username):
+        return "The username must consist only of letters, underscores and spaces."
+
     # Проверка формата email
     email_pattern = r"^(?=[a-zA-Z0-9])(?!.*\.\.)[a-zA-Z0-9_.-]{2,64}@(?=.{1,255}$)[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$"
 
@@ -49,7 +52,7 @@ def my_form():
     # Проверка вопроса (должен содержать хотя бы одну букву и быть длиной > 3 без учёта знаков)
     cleaned_question = ''.join(c for c in question if c.isalnum())  # убираем знаки препинания
     if len(cleaned_question) <= 3 or not any(c.isalpha() for c in cleaned_question):
-        return "Question must contain more than 3 letters or digits and at least one letter."
+        return "Question must contain more than 3 letters."
 
     # Получение текущей даты
     current_date = datetime.now().strftime("%Y-%m-%d")
