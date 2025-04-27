@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ProfilingTarget xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectTarget>
+    <TargetProject>a86b9d99-920b-407a-b5c8-898a76f4e705</TargetProject>
+    <FriendlyName>LR2_01_BottleWebProject_Demidova</FriendlyName>
+  </ProjectTarget>
+  <Reports>
+    <Report>
+      <Filename>C:\Users\Светлана\AppData\Local\Temp\LR2_01_BottleWebProject_Demidova1_20250427.vsp</Filename>
+    </Report>
+  </Reports>
+  <UseVTune>false</UseVTune>
+</ProfilingTarget>
