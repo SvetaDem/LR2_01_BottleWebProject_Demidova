@@ -5,6 +5,7 @@ import pdb
 import json
 import os
 import string
+from myform_mail import is_valid_email
 
 path = 'C:\\Users\\Светлана\\Desktop\\learning\\МДК\\МДК 02.02 Инструментальные средства разработки ПО, У.С. Опалева\\Programs\\LR2_01_BottleWebProject_Demidova\\data.json'
 
@@ -45,9 +46,7 @@ def my_form():
         return "The username must consist only of letters, underscores and spaces, and must include at least one letter."
 
     # Проверка формата email
-    email_pattern = r"^(?=[a-zA-Z0-9])(?!.*\.\.)[a-zA-Z0-9_.-]{2,64}@(?=.{1,255}$)[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$"
-
-    if not re.fullmatch(email_pattern, email_address):
+    if not is_valid_email(email_address):
         return "Invalid email format. Please enter a valid email."
 
     # Проверка вопроса (должен содержать хотя бы одну букву и быть длиной > 3 без учёта знаков)
